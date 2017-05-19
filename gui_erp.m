@@ -696,7 +696,7 @@ if strcmp(cmnd_str,'initialize')
     %%%%%%%%%%%%%%%%%%%%%% AXIS A: Time x ERP Axes %%%%%%%%%%%%%%%%%%%%%%%%
     %
     
-    dat.h_timeA=axes('position',[0.1 .1 .85 .8];
+    dat.h_timeA=axes('position',[0.1 .62 .6 .33]);
     dat.start_pt=find_tpt(dat.plt_times(1),dat.times);
     dat.end_pt=find_tpt(dat.plt_times(2),dat.times);
     plotted_pts=dat.start_pt:dat.end_pt;
@@ -772,7 +772,7 @@ if strcmp(cmnd_str,'initialize')
     %%%%%%%%%%%%%%%%%%%%%% AXIS B: Time x t-score/stderr/GFP Axes %%%%%%%%%%%%%%%%%%%%%%%%
     %
        
-    dat.h_timeB=axes('position',[0.1 .18 .85 .8]); 
+    dat.h_timeB=axes('position',[0.1 .25 .6 .33]); 
     dat.absmxB=max(max(abs(dat.showingB(:,dat.start_pt:dat.end_pt))));
     stat_mx=max(max(dat.showingB(:,dat.start_pt:dat.end_pt)));
     stat_mn=min(min(dat.showingB(:,dat.start_pt:dat.end_pt)));
@@ -893,7 +893,7 @@ if strcmp(cmnd_str,'initialize')
     %
     
     % TOPOGRAPHY
-    dat.h_topoA=axes('position',[0.1 .09 .85 .85],'box','off');
+    dat.h_topoA=axes('position',[0.705 .68 .31 .24],'box','off');
     sig_chans=[];
     if ~isempty(test_wind) && ~isempty(critical_t),
         %if current time point is in a test window look for channels with
@@ -951,7 +951,7 @@ if strcmp(cmnd_str,'initialize')
 
     
     % COLOR BAR
-    dat.h_cbarA=axes('position',[0.13 .88 .77 .02]);
+    dat.h_cbarA=axes('position',[0.76 .945 .2 .015]);
     cbarDG(dat.h_cbarA);
     absmx=round(dat.absmxA*100)/100;
     set(gca,'xtick',[0 0.5 1]);
@@ -964,7 +964,7 @@ if strcmp(cmnd_str,'initialize')
     %STATIC TEXT LABEL
     objs_change_col(1)=uicontrol(dat.fig_id,...
         'Units','normalized', ...
-        'Position',[ 0.915 0.616 0.07 0.04 ],...
+        'Position',[ 0.905 0.62 0.07 0.04 ],...
         'String','msec',...
         'fontunits','normalized', ...
         'Style','text');
@@ -988,7 +988,7 @@ if strcmp(cmnd_str,'initialize')
     %
     
     % TOPOGRAPHY
-    dat.h_topoB=axes('position',[0.1 .09 .85 .85],'box','off');
+    dat.h_topoB=axes('position',[0.705 .27 .31 .24],'box','off');
     
     cbar_title_fontsize=14;
     if strcmpi(p.Results.stat,'gfp') || isinf(dat.t_scores(1,1,bin)) || isnan(dat.t_scores(1,1,bin))
@@ -1015,7 +1015,7 @@ if strcmp(cmnd_str,'initialize')
     end
     
     % COLOR BAR
-    dat.h_cbarB=axes('position',[0.13 .88 .77 .02]);
+    dat.h_cbarB=axes('position',[0.76 .535 .2 .015]);
     cbarDG(dat.h_cbarB);
     absmx=round(dat.absmxB*100)/100;
     set(gca,'xtick',[0 0.5 1]);
@@ -1216,7 +1216,7 @@ if strcmp(cmnd_str,'initialize')
     % Text
     objs_change_col(6)=uicontrol(dat.fig_id,...
         'Units','normalized', ...
-        'Position',[ 0.02 0.185 0.09 0.03 ],...
+        'Position',[ 0.005 0.221 0.09 0.03 ],...
         'String','Stat:',...
         'ToolTipString','Select what to plot in secondary waveform axis: ERP t-scores, standard error of the mean, or global field power.', ...
         'Style','text');
@@ -1235,7 +1235,7 @@ if strcmp(cmnd_str,'initialize')
     dat.h_stat=uicontrol(dat.fig_id,...
         'CallBack','gui_erp(''change stat'');',...
         'Units','normalized', ...
-        'Position',[ 0.1 0.19 0.16 0.03 ],...
+        'Position',[ 0.005 0.19 0.16 0.03 ],...
         'value',ini_val, ...
         'String',stats, ...
         'Style','popup', ...
